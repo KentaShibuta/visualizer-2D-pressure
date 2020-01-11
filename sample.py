@@ -17,12 +17,31 @@ f_name_node = "./20200109142851_node.csv"
 f_name_nbool = "./20200109142851_nbool.csv"
 f_name_pressure = "./20200109142851_pressure.csv"
 
+#print('Input interface plot data >>>>')
+#f_name_interface = input().rstrip()
+
 nc = 30
 rl1 = 10
 rl2 = 20
 
 nc_1 = nc + 1
 nl = rl1 + 1
+
+'''
+interface_start = (nc_1 * nc_1) + 4 * nc * (nl-1)
+
+np_interface_x = np.loadtxt(f_name_interface,
+                          delimiter=',',
+                          skiprows=0,
+                          usecols=(0)
+                          )
+
+np_interface_y = np.loadtxt(f_name_interface,
+                          delimiter=',',
+                          skiprows=0,
+                          usecols=(1)
+                          )
+'''
 
 # ここまでの処理をpythonの中だけで行いたいよね．
 ############################################
@@ -100,7 +119,25 @@ print(color)
 sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
 sm.set_array([])  # only needed for matplotlib < 3.1
 fig.colorbar(sm)
+'''
+np_interface_x = np.loadtxt(f_name_interface,
+                          delimiter=',',
+                          skiprows=0,
+                          usecols=(0)
+                          )
 
+np_interface_y = np.loadtxt(f_name_interface,
+                          delimiter=',',
+                          skiprows=0,
+                          usecols=(1)
+                          )
+
+for i in range(4*nc):
+    if i == 4*nc - 1:
+        plt.plot([np_interface_x[i], np_interface_x[0]], [np_interface_y[i], np_interface_y[0]],'m-.', lw=1.0, label = "Interface")
+    else:
+        plt.plot([np_interface_x[i], np_interface_x[i+1]], [np_interface_y[i], np_interface_y[i+1]],'m-.', lw=1.0)
+'''
 plt.xlabel('$\it{x}$'+" [m]")
 plt.ylabel(' $\it{y}$'+" [m]")
 plt.savefig("./20200101_pressure.svg",format = 'svg')
