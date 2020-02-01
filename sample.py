@@ -13,16 +13,16 @@ plt.rcParams['xtick.direction'] = 'in' # x axis in
 plt.rcParams['ytick.direction'] = 'in' # y axis in
 
 plt.rcParams["font.size"] = 14
-f_name_node = "./20200109142851_node.csv"
-f_name_nbool = "./20200109142851_nbool.csv"
-f_name_pressure = "./20200109142851_pressure.csv"
+f_name_node = "./20200116152612_node.csv"
+f_name_nbool = "./20200116152612_nbool.csv"
+f_name_pressure = "./20200131153113_pressure.csv"
 
 #print('Input interface plot data >>>>')
 #f_name_interface = input().rstrip()
 
 nc = 30
 rl1 = 10
-rl2 = 20
+rl2 = 40
 
 nc_1 = nc + 1
 nl = rl1 + 1
@@ -118,7 +118,8 @@ color=cmap(norm(pressure_new))
 print(color)
 sm = plt.cm.ScalarMappable(cmap=cmap, norm=norm)
 sm.set_array([])  # only needed for matplotlib < 3.1
-fig.colorbar(sm)
+cb = fig.colorbar(sm)
+cb.set_label('$\it{p}$'+' [Pa]')
 '''
 np_interface_x = np.loadtxt(f_name_interface,
                           delimiter=',',
@@ -140,5 +141,11 @@ for i in range(4*nc):
 '''
 plt.xlabel('$\it{x}$'+" [m]")
 plt.ylabel(' $\it{y}$'+" [m]")
-plt.savefig("./20200101_pressure.svg",format = 'svg')
+plt.locator_params(axis='y',nbins=5)
+plt.locator_params(axis='x',nbins=5)
+plt.gca().yaxis.set_tick_params(which='both', direction='in',bottom=True, top=True, left=True, right=True)
+plt.gca().xaxis.set_tick_params(which='both', direction='in',bottom=True, top=True, left=True, right=True)
+plt.xlim(-0.0023, 0.0023)
+plt.ylim(-0.0023, 0.0023)
+plt.savefig("./20200131_015_pressure.svg",format = 'svg')
 plt.show()
