@@ -13,35 +13,18 @@ plt.rcParams['xtick.direction'] = 'in' # x axis in
 plt.rcParams['ytick.direction'] = 'in' # y axis in
 
 plt.rcParams["font.size"] = 14
-f_name_node = "./20200116152612_node.csv"
-f_name_nbool = "./20200116152612_nbool.csv"
-f_name_pressure = "./20200131153113_pressure.csv"
+f_name_node = "./20200302091606_node.csv"
+f_name_nbool = "./20200302091606_nbool.csv"
+f_name_pressure = "./20200302091606_pressure.csv"
 
 #print('Input interface plot data >>>>')
 #f_name_interface = input().rstrip()
 
-nc = 30
-rl1 = 10
-rl2 = 40
+nc = 20
+rl1 = 4
+rl2 = 12
 
 nc_1 = nc + 1
-nl = rl1 + 1
-
-'''
-interface_start = (nc_1 * nc_1) + 4 * nc * (nl-1)
-
-np_interface_x = np.loadtxt(f_name_interface,
-                          delimiter=',',
-                          skiprows=0,
-                          usecols=(0)
-                          )
-
-np_interface_y = np.loadtxt(f_name_interface,
-                          delimiter=',',
-                          skiprows=0,
-                          usecols=(1)
-                          )
-'''
 
 # ここまでの処理をpythonの中だけで行いたいよね．
 ############################################
@@ -66,7 +49,7 @@ pressure_data = np.loadtxt(f_name_pressure,
                     )
 pressure_new = ([])
 for i in range(int(elem_node.shape[0])):
-    if i >= 2100:
+    if i >= (nc*nc + 4*nc*rl1):# 液相の要素番号
         pressure_data[i] = np.nan
     else:
         pressure_new = np.insert(pressure_new, i, pressure_data[i])
@@ -147,5 +130,5 @@ plt.gca().yaxis.set_tick_params(which='both', direction='in',bottom=True, top=Tr
 plt.gca().xaxis.set_tick_params(which='both', direction='in',bottom=True, top=True, left=True, right=True)
 plt.xlim(-0.0023, 0.0023)
 plt.ylim(-0.0023, 0.0023)
-plt.savefig("./20200131_015_pressure.svg",format = 'svg')
+plt.savefig("./20200302_00015pressure.svg",format = 'svg')
 plt.show()
