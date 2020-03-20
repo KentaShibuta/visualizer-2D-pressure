@@ -18,4 +18,8 @@
     + "Input pressure file name >>>>"に続いて，圧力のデータが記述されたファイルのパスを入力．
 ### 実行例
 * 2次元無重力下での液滴の振動現状の圧力分布
+    + `sample_data`のなかのデータを用いて実行
+        - 節点のデータ：`sample_data/20200302103450_node.csv`
+        - 要素と節点の依存関係のデータ：`sample_data/20200302103450_nbool.csv`
+        - 圧力のデータ：`sample_data/20200302103450_pressure.csv`
 ![result_pressure](https://gyazo.com/6cf1f3d0dd4755b8f50b039a0a180625/raw)
