@@ -139,5 +139,5 @@ plt.gca().yaxis.set_tick_params(which='both', direction='in',bottom=True, top=Tr
 plt.gca().xaxis.set_tick_params(which='both', direction='in',bottom=True, top=True, left=True, right=True)
 plt.xlim(-0.0023, 0.0023)
 plt.ylim(-0.0023, 0.0023)
-plt.savefig("./result_pressure.svg",format = 'svg')
+plt.savefig("./result_pressure.png",format = 'png')
 plt.show()
