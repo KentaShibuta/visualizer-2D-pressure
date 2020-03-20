@@ -18,3 +18,4 @@
     + "Input pressure file name >>>>"に続いて，圧力のデータが記述されたファイルのパスを入力．
 ### 実行例
 * 2次元無重力下での液滴の振動現状の圧力分布
+![result_pressure](https://gyazo.com/6cf1f3d0dd4755b8f50b039a0a180625/raw)
