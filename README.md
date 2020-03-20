@@ -12,7 +12,7 @@
         - 要素番号, 節点0の節点番号, 節点1の節点番号, 節点2の節点番号, 節点3の節点番号
 ## 実行方法
 * 可視化プログラムを実行
-    + `python sample.py`
+    + `python vis_2d_pressure.py`
     + "Input node file name >>>>"に続いて，節点座標のデータが記述されたファイルのパスを入力．
     + "Input nbool file name >>>>"に続いて，要素と節点の依存関係のデータが記述されているファイルのパスを入力．
     + "Input pressure file name >>>>"に続いて，圧力のデータが記述されたファイルのパスを入力．
