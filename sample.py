@@ -13,9 +13,18 @@ plt.rcParams['xtick.direction'] = 'in' # x axis in
 plt.rcParams['ytick.direction'] = 'in' # y axis in
 
 plt.rcParams["font.size"] = 14
-f_name_node = "./20200302091606_node.csv"
-f_name_nbool = "./20200302091606_nbool.csv"
-f_name_pressure = "./20200302091606_pressure.csv"
+#f_name_node = "./20200302091606_node.csv"
+#f_name_nbool = "./20200302091606_nbool.csv"
+#f_name_pressure = "./20200302091606_pressure.csv"
+
+print('Input node file name >>>>')
+f_name_node = input().rstrip()
+
+print('Input nbool file name >>>>')
+f_name_nbool = input().rstrip()
+
+print('Input pressure file name >>>>')
+f_name_pressure = input().rstrip()
 
 #print('Input interface plot data >>>>')
 #f_name_interface = input().rstrip()
@@ -130,5 +139,5 @@ plt.gca().yaxis.set_tick_params(which='both', direction='in',bottom=True, top=Tr
 plt.gca().xaxis.set_tick_params(which='both', direction='in',bottom=True, top=True, left=True, right=True)
 plt.xlim(-0.0023, 0.0023)
 plt.ylim(-0.0023, 0.0023)
-plt.savefig("./20200302_00015pressure.svg",format = 'svg')
+plt.savefig("./result_pressure.svg",format = 'svg')
 plt.show()
